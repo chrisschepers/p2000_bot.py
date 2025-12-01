@@ -1,4 +1,6 @@
 
+send_message("✅ Bot is gestart op Render!")
+
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -32,3 +34,4 @@ while True:
     meldingen = get_p2000_meldingen()
     filter_meldingen(meldingen)
     time.sleep(5)  # elke 5 seconden checken
+
