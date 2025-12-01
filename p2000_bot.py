@@ -22,18 +22,15 @@ def get_p2000_meldingen():
     meldingen = soup.find_all("tr")
     return meldingen
 
-def filter_meldingen(meldingen):
-    for melding in meldingen:
-        text = melding.get_text().lower()
-        if "reanimatie" in text and ("duiven" in text or "westervoort" in text or "loo" in text):
-            if text not in seen:
-                seen.add(text)
-                send_message(f"🚨 Reanimatie melding: {text}")
-send_message("✅ Bot is gestart op Render!")
+if text not in seen:
+    seen.add(text)
+    send_message(f"📢 P2000 melding: {text}")
+
 while True:
     meldingen = get_p2000_meldingen()
     filter_meldingen(meldingen)
     time.sleep(5)  # elke 5 seconden checken
+
 
 
 
