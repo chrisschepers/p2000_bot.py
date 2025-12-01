@@ -25,7 +25,6 @@ def get_p2000_meldingen():
 def filter_meldingen(meldingen):
     for melding in meldingen:
         text = melding.get_text().lower()
-        print(f"DEBUG: gevonden melding -> {text}")  # ✅ Extra regel
         if "reanimatie" in text and ("duiven" in text or "westervoort" in text or "loo" in text):
             if text not in seen:
                 seen.add(text)
@@ -35,6 +34,7 @@ while True:
     meldingen = get_p2000_meldingen()
     filter_meldingen(meldingen)
     time.sleep(5)  # elke 5 seconden checken
+
 
 
 
