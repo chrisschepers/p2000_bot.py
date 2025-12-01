@@ -1,5 +1,5 @@
 
-send_message("✅ Bot is gestart op Render!")
+
 
 import requests
 from bs4 import BeautifulSoup
@@ -29,9 +29,10 @@ def filter_meldingen(meldingen):
             if text not in seen:
                 seen.add(text)
                 send_message(f"🚨 Reanimatie melding: {text}")
-
+send_message("✅ Bot is gestart op Render!")
 while True:
     meldingen = get_p2000_meldingen()
     filter_meldingen(meldingen)
     time.sleep(5)  # elke 5 seconden checken
+
 
